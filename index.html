@@ -100,7 +100,6 @@ input[type=range]{width:100%;max-width:420px}
     <ul>
       <li>Work as a team. Read every clue card slowly.</li>
       <li>Solve the 6 balls in <b>any order</b>. Each one gives you a <b>secret letter</b>.</li>
-      <li>Stuck? Press <b>Hint</b>. Each hint costs <b>30 seconds</b>.</li>
       <li>Collect all 6 letters to make the hiding place. Then claim your reward!</li>
     </ul>
     <div class="row"><label for="mins"><b>Round timer</b> (minutes, set by facilitator):</label>
@@ -140,9 +139,8 @@ input[type=range]{width:100%;max-width:420px}
     <div class="eyebrow" style="color:var(--green)">CASE CLOSED</div>
     <h2>You found the trophy!</h2>
     <p class="big" id="winStats"></p>
-    <p class="big">The Googly Ghost has surrendered. Captain Kavya is crying happy tears. There is one more thing...</p>
-    <div class="row" style="justify-content:center"><button class="primary big" id="claimBtn" style="font-size:1.3rem;padding:16px 28px">CLAIM YOUR REWARD</button></div>
-    <div id="rickWrap" style="display:none">
+    <p class="big">The Googly Ghost has surrendered. Captain Kavya is crying happy tears. Your reward is playing now...</p>
+    <div id="rickWrap">
       <h2 style="margin-top:20px">You just got Rickrolled!</h2>
       <p class="big">The real prize is that your team cracked all 6 clues. Well played, detectives!</p>
       <div class="video" id="vid"></div>
@@ -154,7 +152,7 @@ input[type=range]{width:100%;max-width:420px}
 </main>
 
 <script>
-const DATA = {"s1":["8a4a328512ab2e4e2c99f7759c5d02fbf8c91706061723de5ff0204badd1dad1","ecb6da9ade155fa9ed4ffb3cb008b4016cae9c8bd4d99e1f3ceafedba76b9183"],"s2":"456f9b70dd22a6877b44a0f5098bab3ef23d37ce69f83a9331edd496e000cbcc","s3":"c25914982376a0038e06b7db4bed3cbc45205cb44b2a6d6bca6d505a3b26d90d","cA":"ZNK MNUYZ LRKJ ZNXUAMN ZNK VGBOROUT","s4":"805ec3421604508f262eb3bbeab1836242b95174e9f3c8775665ae8d43920e29","s5":"274d60e3b794b61678445d571594dc88e14dea1eb78f2d48d83b922cb9b2b6bc","s6":"f58a957bf64b5244c7655ce3934634582d0facf60e3ca1dbc1706aa97ad79069","start":"ae0d44527340c80f98278f36c13724bd35e57e0323086549f1d3ae4259940de0","enc":[15,2,6,19,19,25],"final":"83f5e3ad2efa68f0d639a7dd8495d712d3156329041ff7b53312783badd10dba","t":{"salt":"dDK3FhGEDr5v6IJWEwImeA==","iv":"b5eeSIDomDZI1mDH","ct":"QCgyi7DrYfmfXcUe6qNL+FZnfzSk4dCkklwQGE++owmPl3qply+SLEKg9CSjy0AAbUKdcTmQxCw2eX0JaVaX6kfRg5Imd4Hpj4Ja7hJ+eWGKL1VBXi+QgvJ4oJ69+Wqi/ZJ/tDorNNkud9LvXc8fgKrLzRZO9OfyP+gpmHYanCIhGMNj9ADw/K/fhE1z2M6ac43FnYz8QAx0a7+3dAYZGBuHYXbA6zYYpBkDrMDJB/+znvLBzVexfOO/FQhhOfFUaNkC7PjTNvdYj9KXHeBff6AovQDovWnmAqnisD9o6uZIuAwiwjpekWRiz2E/fr9ohhPbAIS5CJm1x+Vki+B64mnFn5DQk3kN4CrgG6AFZ1E8lWwfj0NTRMkI7BIzuQ9jsU5c5AcwML+hJ7Od7XFSygYdlrxxGp16HyJ0LojsGa7vioiXdOGlFMEgyBbT8InVoB29LD3OiqEj7JM+rJ68KgBsiLSYZulcNd0G9ZoAy1nMWVqcV8tXtBeXR6JeablbBs8Q8h3u2A9sIAOT0UikFb4wyI2cfc4d6lvG93QqEBO5BzK1cn85L6P0hZmo/TW+rfmzc34J2To8AuYIAJB+OqK/XD8QZqn65TmKhJUSjfmR2QAFGcEJEW5KfopcUtz5OQx9Nq5mxvVTvrTlnZCNyMQGbMaxPthNO1ULAgR2eHiihB1yzGJST2eeY1MRuCfdQ9J2DBPSNIXHFAemO8YnsEbS0rMXBNdOW4J+ZqxjUcG7FK94JzHofpOZQiqXYTosK4XQcXHGadIYvTrivE1YncwHA1q1A+8a4KkmGTRUIufqftGmKL2SSE0xJJdlqRyCCbODpUvoAFqOg3GGCWpgFjFlb/ugdGvt1yxJRO47YmGYkkoXtEjdxPXBaR9g2EeCp+xCEMepQXKBrQ7kd4IqDjPG0bNEnSW+KRskM1PmhoiLDWrKR+q68No7YAbankZNxT3xZn8WBp8JUQl3nPCLJYo9jlps7CygazFCscvil9Qnzbgxsesyc/Nk9nueQK2IAnMT3R/5HlzxA7sXTanoYsJ6cnkyi1Q1SgOA06v2xiiY7C3IzhlizNYifmwKZy4BACZwKMMKbmzme3+gtqOSWqIRz3TN/NaVtrYPpCpQExvPtbwuZvzoa4OxAsykhzsDwzhxtmvWa7B81ZZMT874wxJ3W/9fWB9QKng2ToX6zZ/xa/3KDqQNxuC4ssjXtMUs45oFZGUClZTX5+b+3yqhcX7Ei250Jwv+O4tuT5a7wtGmeYAbeU1yPbxbV6c/t50ghpdr57WepzGpmty11/HRwODSCCo5LghwfcanSzsos8e7brcdAwywZ2TD/MJwCDmhWkLwMOJrkCh/e5lO7CgQJjbnf/OsgnIQ6PQu2DT7+f0UotLn49qzf+uRIIZfkB4fnKbCtNhJ5ILTsRfyuhdTNKieWhInvw==","iter":200000}};
+const DATA = {"s1":["8a4a328512ab2e4e2c99f7759c5d02fbf8c91706061723de5ff0204badd1dad1","ecb6da9ade155fa9ed4ffb3cb008b4016cae9c8bd4d99e1f3ceafedba76b9183"],"s2":"456f9b70dd22a6877b44a0f5098bab3ef23d37ce69f83a9331edd496e000cbcc","s3":"c25914982376a0038e06b7db4bed3cbc45205cb44b2a6d6bca6d505a3b26d90d","cA":"ZNK MNUYZ LRKJ ZNXUAMN ZNK VGBOROUT","s4":"805ec3421604508f262eb3bbeab1836242b95174e9f3c8775665ae8d43920e29","s5":"274d60e3b794b61678445d571594dc88e14dea1eb78f2d48d83b922cb9b2b6bc","s6":"f58a957bf64b5244c7655ce3934634582d0facf60e3ca1dbc1706aa97ad79069","start":"ae0d44527340c80f98278f36c13724bd35e57e0323086549f1d3ae4259940de0","enc":[15,2,6,19,19,25],"final":"83f5e3ad2efa68f0d639a7dd8495d712d3156329041ff7b53312783badd10dba","t":{"salt":"38ozPhSzME6bMsLTq5R0YQ==","iv":"2otnoxIFCUQZbmqn","ct":"wxDn9NkjieiC1O2kAY6h4Qwf9FBQT5paIQvHgl1/ASGBV+/VqJO0OV1F3G8XuTbCMnFO88h+81c/2HnxXH0grOPvu4n/gpecmgRPhq2mFWrLiLxZINL/VVRpLt9TtnGvfOssi2LozovkMnZJMG5lW4SaLZtDes3brzRhkvNZFgBH871/5kUojkAZuSINFtNvEbCsCUrMW5xekT7/DEt1EuiLJ02fJa6ARH8eUwtMlCodmsIAl1JfwxjU3lhpZTLpCNhABFpKwJiL6E8QWVPrUVVDivVVz9t6DjkOPjyLSvXhZxXcOpq01cjsFlknj5cEwzXtEv/gAJq2VfnACva/pwPYobPDURpsdSxrz48RuekRBjkuc5Gbmxb3Hae1HuWKBzrU+Km8pWe2oJNhUI+Y3LYisPCZK1v3aH1uOcZvdk68bCrXh+rE/XtkvqbItwQWj39ewn1yxbqqwFxCgBSIL6OhQQ/oeeuO6nJXOIk4L4QqAsYCBI5nF60cLM5ocrFExlk7VWacayFCkdspCQlxecaOVNI1dhuZJvq3kAFFQWclh8TsoRGKNzkZITQQmAmZjBBqj3JohbrTeukDB7pt39nPY51AmAyNHVLfDwDOJjoxz+52uZDt4+K1XAle/jIOcV0Dj+E9hRsxhOUKwfEsBggMWTifeFLl7KBJenkqtrS51b7cAbCPNzG3BTld3KfPOIDfBhCGZDCk5Hut8ONBe7WK3pru9vmdUC+7lGox0i2DnXiedosRYEEZng9TXen1UJVZ7ItvEoxWHXZH5xfAaOp/E5cGu/nmt/9jx3YW86ywJa0ssz2gN4kZnwwZh7HFhDjCX7fxHIU0myFjbYA/OXeU0yR+HqDn1My/8h4f3zuJqZujauS4Jg+K4bsDaiX6alV7Imd0nyt1MQ8eK0osGiDf/eJfTo1uRRRr4mIuxE05cs5kySN2W3eLjZ6KUcJq82tJ5P/AGOsIn993jMJnpiCflf+flO1Kh9XDfTUdgAvAFmSBxO1JeXueBLKPXDn3PlxW+kEjrZurErCMDwok7c4oi/yucnPMYFxOnpnsfT+SfVJhTtmZYuAYBAX3M0x3WUrxWc2/V029AN2paLk5E7jbzkyoDfmAOUhZmWgbs2S+zMISkITUmgdRtj8KtbkZTzbH5CnoTEwBRbu9uhvKM+ghVAWh37pA5F0NpseKnLNMM4LknJD/s6Bs5lrCZ3dLFD4HvbvzKdNgRfB+lvhd1rXmREXyeCDwiQ+ku1zclmvdAHCllGp/cou7tY/Yy7sQL+jBrRWwXXZ2dLFr1mPoldDEu5tUvnAm8WGeY0ExSawxboh3OSbhIAul9MUUczUQRvo8xz+rDmVT5hIdZO+Yk7bv6inPWdVEpsGwpdPWpQRTHScmkJyqissKrg4Wew5Z","iter":200000}};
 const $ = s => document.querySelector(s);
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm = s => s.trim().toLowerCase().replace(/\s+/g,' ');
@@ -207,8 +205,7 @@ const balls = [
      const v=norm($('#a').value).replace(/\b(station|metro)\b/g,'').replace(/\s+/g,'');
      if(H('s1:'+v)===DATA.s1[0]||H('s1:'+v)===DATA.s1[1]) return {ok:true,key:'cubbonpark',msg:'Yes! Trinity, then MG Road (1), Cubbon Park (2), Vidhana Soudha (3), then back 1 stop to Cubbon Park. The ghost is hiding near the park!'};
      return {ok:false,msg:'Not that one. Count stop by stop on the map, one finger per stop. Remember the "1 stop back" part.'};
-   },
-   hints:['Start at Trinity and count each stop going towards Majestic.','After 3 stops you are at Vidhana Soudha.','Now go 1 stop back, towards Indiranagar.']},
+   }},
 
  { id:2, name:'Dosa Receipt', ico:'2',
    story:'The ghost stopped for a snack at Namma Tiffin Room and left a crumpled receipt. How much did the ghost really pay?',
@@ -223,8 +220,7 @@ const balls = [
      if(H('s2:'+v)===DATA.s2) return {ok:true,key:v,msg:'Correct! 2×60 + 3×30 + 40 = 250. That is more than 200, so 10% off (₹25) makes it ₹225.'};
      if(v==='250') return {ok:false,msg:'That is the bill BEFORE the discount. Read the wall sign again!'};
      return {ok:false,msg:'Not quite. First add up the order, then check the sign on the wall.'};
-   },
-   hints:['Dosas: 2 × ₹60. Coffees: 3 × ₹30. Vada: ₹40. Add them all.','The total is ₹250. Is that more than ₹200?','10% of ₹250 is ₹25. Subtract it.']},
+   }},
 
  { id:3, name:'Secret Scribble', ico:'3',
    story:'The ghost scribbled a secret message on a stadium ticket. Each letter was pushed forward in the alphabet. You need to push each letter back to read it.',
@@ -245,8 +241,7 @@ const balls = [
      const v=norm($('#a').value);
      if(H('s3:'+v)===DATA.s3) return {ok:true,key:v,msg:'Decoded! The Ghost fled through the Pavilion. That kind of secret code is called a Caesar cipher.'};
      return {ok:false,msg:'Not yet. How many balls are in an over? Slide the decoder to that number.'};
-   },
-   hints:['There are 6 balls in an over, so the key is 6.','Slide the decoder to 6 and read the sentence.','The place is the last word of the message.']},
+   }},
 
  { id:4, name:'Over Maths', ico:'4',
    story:'The vault under the stadium opens with a PIN. The ghost hid the rule inside the scorecard of the last over.',
@@ -259,8 +254,7 @@ const balls = [
      const v=$('#a').value.replace(/\D/g,'');
      if(H('s4:'+v)===DATA.s4) return {ok:true,key:v,msg:'Vault open! 4+6+0+1+2+6 = 19, plus 1 wide = 20 runs. There were 2 sixes. So the PIN is 20 then 2: 202.'};
      return {ok:false,msg:'Not quite. Add every ball, do not forget the extra, then count the sixes separately.'};
-   },
-   hints:['A wicket (W) scores 0 runs.','4+6+0+1+2+6 = 19. Now add the wide.','Total 20. Sixes: 2. Join them.']},
+   }},
 
  { id:5, name:'Who Did It?', ico:'5',
    story:'Four people were near the trophy room. The CCTV is blurry but it shows some clues about the thief (not the ghost costume, the real person inside).',
@@ -276,22 +270,20 @@ const balls = [
      const r=document.querySelector('input[name=sus]:checked'); if(!r) return {ok:false,msg:'Pick a suspect first.'};
      if(H('s5:'+r.value)===DATA.s5) return {ok:true,key:r.value,msg:'Got them! Cap + no glasses + tall = Murthy Anna. He wanted to keep the trophy safe from the "ghost" and moved it, but forgot to tell anyone!'};
      return {ok:false,msg:'That suspect does not match all three clues. Cross off anyone who breaks a clue.'};
-   },
-   hints:['Cross out everyone who is NOT wearing a cap.','Now cross out anyone who wears glasses.','Only one suspect fits all of the clues. Check the height column to confirm.']},
+   }},
 
  { id:6, name:'Silk Board Jam', ico:'6',
    story:'The ghost\'s getaway scooter is stuck at the Silk Board junction. A traffic camera counted the cars that passed each minute. The ghost\'s next move depends on the pattern!',
    cards:[
      ['Traffic camera','Minute 1: <b>2</b> cars · Minute 2: <b>6</b> cars · Minute 3: <b>12</b> cars · Minute 4: <b>20</b> cars · Minute 5: <b>?</b>'],
-     ['Hint card','Look at how much the number <b>grows</b> each minute. The growth itself follows a pattern.']],
+     ['Pattern clue','Look at how much the number <b>grows</b> each minute. The growth itself follows a pattern.']],
    task:'How many cars will pass in minute 5?',
    ui:()=>`<div class="row"><input type="text" id="a" inputmode="numeric" placeholder="cars" autocomplete="off" aria-label="Cars"><button class="primary" data-check>Check</button></div>`,
    check(){
      const v=$('#a').value.replace(/\D/g,'');
      if(H('s6:'+v)===DATA.s6) return {ok:true,key:v,msg:'Yes! The jumps are +4, +6, +8, so the next jump is +10. 20 + 10 = 30 cars. Pattern power!'};
      return {ok:false,msg:'Not quite. Write down the jump from each minute to the next (6−2, 12−6, ...). What do you notice?'};
-   },
-   hints:['Find the difference between each pair of numbers.','The differences are 4, 6, 8. What comes next?','The next difference is 10. Add it to 20.']}
+   }}
 ];
 
 /* ===== State & timer ===== */
@@ -312,7 +304,6 @@ function renderNav(){
   $('#slots').innerHTML=balls.map(b=>`<span class="slot ${solved[b.id]?'f':''}">${solved[b.id]?letters[b.id]:'?'}</span>`).join('');
   const all=balls.every(b=>solved[b.id]);
   $('#finalIn').disabled=!all; $('#finalBtn').disabled=!all;
-  if(hintsUsed&&!timeUpShown) $('#hintinfo').textContent='Hints: '+hintsUsed+' (−'+hintsUsed*PENALTY/1000+'s)';
 }
 function renderBall(){
   const b=balls[current];
@@ -324,19 +315,9 @@ function renderBall(){
     <div id="ui">${b.ui()}</div>
     <div class="fb" id="fb"></div>
     <div class="reward" id="reward">Secret letter from ball ${b.id}<br><b id="rd"></b></div>
-    <div class="hintbar"><button id="hintBtn">Hint (−30s)</button><span class="hint" id="hintTxt"></span></div>
   </div>`;
   if(b.after) b.after();
-  const n=hintShown[b.id]||0;
-  if(n) $('#hintTxt').innerHTML=b.hints.slice(0,n).map((h,i)=>`Hint ${i+1}: ${esc(h)}`).join('<br>');
   if(solved[b.id]) markSolved(b,'Already solved.');
-  $('#hintBtn').onclick=()=>{
-    const k=hintShown[b.id]||0; if(k>=b.hints.length) return;
-    hintShown[b.id]=k+1; hintsUsed++; deadline-=PENALTY; tick(); renderNav();
-    $('#hintTxt').innerHTML=b.hints.slice(0,k+1).map((h,i)=>`Hint ${i+1}: ${esc(h)}`).join('<br>');
-    if(k+1>=b.hints.length) $('#hintBtn').disabled=true;
-  };
-  if((hintShown[b.id]||0)>=b.hints.length) $('#hintBtn').disabled=true;
   const cb=document.querySelector('[data-check]');
   if(cb) cb.onclick=()=>{
     const r=b.check(); const fb=$('#fb');
@@ -382,16 +363,12 @@ $('#finalBtn').onclick=()=>{
   if(H('final:'+typed)===DATA.final){
     clearInterval(timer);
     const left=deadline-Date.now();
-    $('#winStats').innerHTML=(left>=0?'Found with <b>'+fmt(left)+'</b> to spare':'Found <b>'+fmt(-left)+'</b> over time')+' · Hints used: <b>'+hintsUsed+'</b>';
+    $('#winStats').innerHTML=(left>=0?'Found with <b>'+fmt(left)+'</b> to spare':'Found <b>'+fmt(-left)+'</b> over time')+'';
     show('claim');
+    $('#vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0" title="Your reward" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
   } else { fb.className='fb bad'; fb.textContent='Not a word yet. Type the 6 letters in ball order, 1 to 6.'; }
 };
 $('#finalIn').addEventListener('keydown',e=>{ if(e.key==='Enter') $('#finalBtn').click(); });
-$('#claimBtn').onclick=()=>{
-  $('#claimBtn').parentElement.style.display='none';
-  $('#rickWrap').style.display='block';
-  $('#vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0" title="Your reward" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-};
 $('#againBtn').onclick=()=>location.reload();
 let rArm=false;
 $('#resetBtn').onclick=()=>{ const b=$('#resetBtn'); if(!rArm){ rArm=true; b.textContent='Click again to confirm'; setTimeout(()=>{rArm=false;b.textContent='Reset round';},3000);} else location.reload(); };
